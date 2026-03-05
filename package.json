@@ -1,0 +1,85 @@
+{
+  "name": "@forwardemail/mcp-server",
+  "description": "Model Context Protocol (MCP) server for Forward Email. Connect AI to your inbox.",
+  "version": "0.0.0",
+  "author": "Forward Email LLC <support@forwardemail.net> (https://forwardemail.net)",
+  "bin": {
+    "mcp-server": "./bin/mcp-server.js"
+  },
+  "bugs": {
+    "url": "https://github.com/forwardemail/mcp-server/issues"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cosmiconfig": "^9.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "c8": "^10.1.2",
+    "fixpack": "^4.0.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "remark-cli": "^12.0.1",
+    "remark-preset-lint-recommended": "^7.0.1",
+    "xo": "^0.58.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    }
+  },
+  "files": [
+    "lib/",
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://forwardemail.net/mcp",
+  "keywords": [
+    "ai",
+    "automation",
+    "chatgpt",
+    "claude",
+    "email",
+    "forward-email",
+    "llm",
+    "mcp",
+    "model-context-protocol"
+  ],
+  "license": "BUSL-1.1",
+  "main": "lib/index.js",
+  "packageManager": "pnpm@9.0.0",
+  "prettier": {
+    "useTabs": false,
+    "tabWidth": 2,
+    "singleQuote": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forwardemail/mcp-server.git"
+  },
+  "scripts": {
+    "lint": "fixpack && remark . -qfo && xo --fix",
+    "pre-commit": "lint-staged",
+    "prepare": "husky",
+    "pretest": "pnpm run lint",
+    "test": "c8 --reporter=text --reporter=html node --test"
+  },
+  "types": "lib/index.d.ts",
+  "xo": {
+    "space": 2,
+    "prettier": true,
+    "rules": {
+      "unicorn/prefer-module": "off",
+      "import-x/extensions": "off",
+      "n/prefer-global/process": "off"
+    }
+  }
+}
